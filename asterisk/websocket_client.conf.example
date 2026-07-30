@@ -1,0 +1,16 @@
+; Copy to Server A: /etc/asterisk/websocket_client.conf
+; Points Asterisk external media at your self-hosted Dograh API.
+;
+; Section name [dograh] = WebSocket Client Name in Dograh telephony config.
+; Set DOGRAH_ARI_WS_URI in dograh.env on Server B, then paste the same URI here.
+
+[dograh]
+type = websocket_client
+uri = wss://voice.tekreminnovations.com/api/v1/telephony/ws/ari
+protocols = media
+tls_enabled = yes
+ca_list_file = /etc/ssl/certs/ca-certificates.crt
+
+; Internal network (no TLS) — only if Asterisk and Dograh share a private LAN:
+; uri = ws://SERVER_B_PRIVATE_IP:8000/api/v1/telephony/ws/ari
+; protocols = media

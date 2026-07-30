@@ -1,0 +1,11 @@
+; Copy to Server A: /etc/asterisk/ari.conf
+; Must match Dograh Telephony → Asterisk ARI → Stasis App Name + App Password
+
+[general]
+enabled = yes
+allowed_origins = *
+
+[dograh]
+type = user
+read_only = no
+password = change-me-ari-password

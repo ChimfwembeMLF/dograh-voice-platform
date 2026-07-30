@@ -1,0 +1,22 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: sip-connector
+    metrics_path: /health
+    static_configs:
+      - targets:
+          - sip-connector:8080
+
+  - job_name: whisper
+    metrics_path: /v1/models
+    static_configs:
+      - targets:
+          - whisper:9000
+
+  - job_name: piper
+    metrics_path: /health
+    static_configs:
+      - targets:
+          - piper:5000

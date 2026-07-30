@@ -1,0 +1,14 @@
+; Copy to Server A: /etc/asterisk/extensions_voice.conf
+; Include from extensions.conf:  #include extensions_voice.conf
+
+[voice-ai]
+exten => 8000,1,NoOp(=== Bank Voice AI — Dograh ===)
+ same => n,Answer()
+ same => n,Wait(1)
+ same => n,Stasis(dograh)
+ same => n,Hangup()
+
+; Optional: catch-all for extensions registered in Dograh telephony UI
+; exten => _X.,1,NoOp(Incoming call to ${EXTEN})
+;  same => n,Stasis(dograh)
+;  same => n,Hangup()

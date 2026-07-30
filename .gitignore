@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*.wav
+.env
+*.env
+!dograh.env.example
+dograh.env
+secrets/
+.DS_Store

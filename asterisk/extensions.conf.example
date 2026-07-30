@@ -1,0 +1,20 @@
+; Copy relevant sections to Server A: /etc/asterisk/extensions.conf
+; Replace "dograh" with your ARI app name if different.
+
+; --- Production inbound (Dograh workflow on extension 8000) ---
+[from-external]
+exten => 8000,1,NoOp(Inbound call to Dograh extension 8000)
+ same => n,Stasis(dograh)
+ same => n,Hangup()
+
+; Catch-all pattern for every extension registered in Dograh telephony config
+; exten => _X.,1,NoOp(Incoming call to ${EXTEN})
+;  same => n,Stasis(dograh)
+;  same => n,Hangup()
+
+; --- Optional: simple AI via sip-connector (extension 9000) ---
+; Use this OR Dograh ARI on 8000 — both can coexist on different extensions.
+; exten => 9000,1,NoOp(Route to sip-connector / external AGI)
+;  same => n,Answer()
+;  same => n,Playback(custom/welcome)
+;  same => n,Hangup()
