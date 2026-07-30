@@ -1,0 +1,10 @@
+; Optional snippet for Server A — ensure ulaw for Dograh external media.
+; Merge into your PJSIP endpoint / trunk configuration.
+
+;[endpoint-dograh-trunk]
+;type = endpoint
+;context = from-external
+;disallow = all
+;allow = ulaw
+;auth = auth-dograh-trunk
+;aors = aors-dograh-trunk

@@ -1,0 +1,20 @@
+STOP — DO NOT DEPLOY AS "APPLICATION"
+=====================================
+
+This repo is Docker Compose only. If Dokploy logs show:
+
+  Starting nixpacks build...
+  Nixpacks was unable to generate a build plan
+
+you created or deployed an APPLICATION service. That will never work.
+
+FIX (Dokploy UI):
+1. Delete service "voiceplatform-uximrt" (Application)
+2. Open existing Compose service "voiceagentplatform-ivr-hj26ln"
+   OR Add Service → Compose → Docker Compose
+3. Git repo: ChimfwembeMLF/dograh-voice-platform
+4. Compose path: docker-compose.yml
+5. Environment: paste dograh.env.example (with real secrets)
+6. Deploy
+
+Full guide: docs/DOKPLOY.md
